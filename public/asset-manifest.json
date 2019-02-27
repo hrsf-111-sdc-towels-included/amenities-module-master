@@ -1,0 +1,5 @@
+{
+  "main.js": "bundle.js",
+  "bundle.js.br": "bundle.js.br",
+  "bundle.js.gz": "bundle.js.gz"
+}
