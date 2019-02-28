@@ -78,12 +78,7 @@
 #### - DELETE -
 >`/api/amenities/<itemID>`
 #### Request
-> Expected Data On Body:
-```json
-{
-    review_id: string,
-}
-```
+> Does Nothing
 #### Success 201
 > Does Nothing
 
