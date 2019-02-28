@@ -65,22 +65,46 @@
 
 ## Update
 #### - PUT -
->`/api/amenities/<itemID>`
+>`/api/amenities/<itemID>/<amenId>`
 #### Request
-> Does Nothing
+> Does nothing
 #### Success 201
-> Does Nothing
-
+> Expected Data On Body:
+```json
+{
+    id: Integer,
+    name: String,
+    appeal: Integer,
+    category: String,
+    common: Integer,
+    description: String,
+    img_url: String,
+    amen_id: Integer,
+    home_id: Integer,
+    included: Integer }
+```
 #### Failure 400
 > Does Nothing
 
 ## DELETE
 #### - DELETE -
->`/api/amenities/<itemID>`
+>`/api/amenities/<itemID>/<amenId>`
 #### Request
 > Does Nothing
 #### Success 201
-> Does Nothing
-
+> Expected Data On Body:
+```json
+{
+    id: Integer,
+    name: String,
+    appeal: Integer,
+    category: String,
+    common: Integer,
+    description: String,
+    img_url: String,
+    amen_id: Integer,
+    home_id: Integer,
+    included: Integer }
+```
 #### Failure 400
 > Does Nothing
