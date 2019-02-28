@@ -14,6 +14,7 @@
 1. [Delete](#Delete)
 
 ## Read
+>all amenities data of the home being viewed.
 #### - GET -
 >`/api/amenities/<itemID>`
 #### Request
@@ -40,23 +41,11 @@
 
 
 ## Create
+>Does nothing
 #### - POST -
 >`/api/amenities/<itemID>`
 #### Request
-> Expected Data On Body:
-```json
-{
-    id: Integer,
-    name: String,
-    appeal: Integer,
-    category: String,
-    common: Integer,
-    description: String,
-    img_url: String,
-    amen_id: Integer,
-    home_id: Integer,
-    included: Integer }
-```
+> Does nothing
 #### Success 201
 > Does Nothing
 
@@ -64,6 +53,7 @@
 > Does Nothing
 
 ## Update
+>Add an amenity
 #### - PUT -
 >`/api/amenities/<itemID>/<amenId>`
 #### Request
@@ -87,6 +77,7 @@
 > Does Nothing
 
 ## DELETE
+>remove an amenity 
 #### - DELETE -
 >`/api/amenities/<itemID>/<amenId>`
 #### Request

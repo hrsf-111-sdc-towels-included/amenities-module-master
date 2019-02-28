@@ -30,10 +30,21 @@ app.get('/api/amenities/:homeId', (req, res) => {
     } else {
       console.log(amenData);
       stringedAmenData = JSON.stringify(amenData)
-      res.end(stringedAmenData)
+      RTCIceTransportStateChangedEvent.send(200).end(stringedAmenData)
     }
   })
-})
+});
+
+app.post(`/api/amenities/:itemId`, (req, res) => {
+  res.send(201)
+});
+app.put(`/api/amenities/:itemID/:amenId`, (req, res) => {
+  res.send(201)
+});
+
+app.delete(`/api/amenities/:itemID/:amenId`, (req, res) => {
+  res.send(200)
+});
 
 app.listen(port, () => {
   console.log(`I'm serving from http://localhost:${port}`);
