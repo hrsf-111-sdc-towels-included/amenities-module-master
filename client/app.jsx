@@ -21,12 +21,13 @@ class App extends React.Component {
                 paramId = input
             }
         }
-        fetch('http://ec2-3-91-230-2.compute-1.amazonaws.com/api/amenities/' + paramId, {
+        fetch('/api/amenities/' + paramId, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'},
           })
             .then((response) => response.json())
             .then((data) => {
+                console.log(data);
                 let houseAmenities = [];
                 for (var prop in data) {
                     houseAmenities.push(data[prop])

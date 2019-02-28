@@ -28,6 +28,7 @@ app.get('/api/amenities/:homeId', (req, res) => {
     if(err) {
       throw err;
     } else {
+      console.log(amenData);
       stringedAmenData = JSON.stringify(amenData)
       res.end(stringedAmenData)
     }
