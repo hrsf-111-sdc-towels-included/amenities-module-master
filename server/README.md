@@ -67,27 +67,7 @@
 #### - PUT -
 >`/api/amenities/<itemID>`
 #### Request
-> Expected Data On Body:
-```json
-{
-    author: {
-      name: string,
-      img_url: string,
-    }
-    review_id: string,
-    author_id: integer,
-    home_id: integer,
-    accuracy: integer,
-    communication: integer,
-    cleanliness: integer,
-    location: integer,
-    check_in: integer,
-    value: integer,
-    complaints: boolean,
-    comment: string,
-    created_at: date
-}
-```
+> Does Nothing
 #### Success 201
 > Does Nothing
 
