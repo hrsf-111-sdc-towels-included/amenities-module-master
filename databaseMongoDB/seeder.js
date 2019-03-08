@@ -1,98 +1,84 @@
-const csvWritter = require('csv-writer');
+const mongoose = require('mongoose');
+const csvToJson = require('csvtojson');
+const fs = require('fs');
+const LineInputStream = require('line-input-stream');
 
-var csvObjectHead = csvWritter.createObjectCsvWriter({
-    path: `${__dirname}/theData.csv`,
-    header: [
-        {id: "amen_id", title: "amen_id"},
-        {id: "appeal", title: "appeal"},
-        {id: "category", title: "category"},
-        {id: "common", title: "common"},
-        {id: "description", title: "description"},
-        {id: "home_id", title: "home_id"},
-        {id: "id", title: "id"},
-        {id: "img_url", title: "img_url"},
-        {id: "included", title: "included"},
-        {id: "name", title: "name"},
+mongoose.connect('mongodb://localhost:27017/amenities', { useNewUrlParser: true });
+
+// mongoose.connection.db.dropCollection('amenitylists', (err, response) => {
+//   if (err) {
+//     throw ("error");
+//   } else {
+//     console.log(response);
+//   }
+// })
+
+// mongoose.connection.db.dropCollection('amenSetList', (err, response) => {
+//   if (err) {
+//     throw ("error");
+//   } else {
+//     console.log(response);
+//   }
+// })
 
 
-    ],
+
+var amenitySchema = new mongoose.Schema({
+  "home_id": Number,
+  "amenities": Array
 });
 
-var dataInjecting = [
-]
+var obj = {
+  "home_id": 0,
+  "amenities": [1, 4, 5, 7]
+};
+var amenityCollection = mongoose.model('amenitylist', amenitySchema);
+amenityCollection.create(obj);
 
-var testSeed = {
-    amen_id: 11, 
-    appeal: 9, 
-    category: "Hip", 
-    common: 1, 
-    description: "Mason jar filled w/ dill", 
-    home_id: 103, 
-    id: 56, 
-    img_url: "https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/jar.png", 
-    included: 0, 
-    name: "Pickle jar"
+var amenSetSchema = new mongoose.Schema({
+  id: Number,
+  name: String,
+  appeal: Number,
+  category: String,
+  common: Boolean,
+  description: String,
+  img_url: String,
+});
+
+var newObj = {
+  id: 0,
+  name: "String",
+  appeal: 2,
+  category: "String",
+  common: false,
+  description: "String",
+  img_url: "String",
 }
 
-
-for (var i = 0; i < 100; i++) {
-    dataInjecting.push(testSeed);
-}
-
-csvObjectHead.writeRecords(dataInjecting);
+var amenSetCollection = mongoose.model('amenSetList', amenSetSchema);
+amenSetCollection.create(newObj);
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const createCsvWriter = require('csv-writer').createObjectCsvWriter;
-// const csvWriter = createCsvWriter({
-//     path: `${__dirname}/file.csv`,
-//     header: [
-//         {id: 'name', title: 'NAME'},
-//         {id: 'lang', title: 'LANGUAGE'}
-//     ]
+// csvToJson().fromFile(`${__dirname}/amenityList.csv`).then((importedData) => {
+//   amenityCollection.collection.insert(importedData, (err, response) => {
+//     if (err) {
+//       throw ("error");
+//     } else {
+//       console.log("inserted amens");
+//     }
+//   });
 // });
- 
-// const records = [
-//     {name: 'Bob',  lang: 'French, English'},
-//     {name: 'Mary', lang: 'English'}
-// ];
- 
-// csvWriter.writeRecords(records)       // returns a promise
-//     .then(() => {
-//         console.log('...Done');
-//     });
+
+// csvToJson().fromFile(`${__dirname}/amenitySets.csv`).then((importedData) => {
+//   amenSetCollection.collection.insert(importedData, (err, response) => {
+//     if (err) {
+//       throw ("error");
+//     } else {
+//       console.log("inserted sets");
+//       mongoose.connection.close();
+//     }
+//   })
+// })
 

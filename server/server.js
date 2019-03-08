@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const db = require('../database');
+const db = require('./../databaseMySQL');
 const expressStaticGzip = require('express-static-gzip');
 
 const app = express();
@@ -30,21 +30,21 @@ app.get('/api/amenities/:homeId', (req, res) => {
     } else {
       console.log(amenData);
       stringedAmenData = JSON.stringify(amenData)
-      RTCIceTransportStateChangedEvent.send(200).end(stringedAmenData)
+      res.send(stringedAmenData).end(200);
     }
   })
 });
 
-app.post(`/api/amenities/:itemId`, (req, res) => {
-  res.send(201)
-});
-app.put(`/api/amenities/:itemID/:amenId`, (req, res) => {
-  res.send(201)
-});
+// app.post(`/api/amenities/:itemId`, (req, res) => {
+//   res.send(201)
+// });
+// app.put(`/api/amenities/:itemID/:amenId`, (req, res) => {
+//   res.send(201)
+// });
 
-app.delete(`/api/amenities/:itemID/:amenId`, (req, res) => {
-  res.send(200)
-});
+// app.delete(`/api/amenities/:itemID/:amenId`, (req, res) => {
+//   res.send(200)
+// });
 
 app.listen(port, () => {
   console.log(`I'm serving from http://localhost:${port}`);
