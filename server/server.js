@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const db = require('./../databaseMySQL');
+const dbS = require('./../databaseMySQL');
+const dbM = require('./../databaseMongoDB');
 const expressStaticGzip = require('express-static-gzip');
 
 const app = express();
@@ -24,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/api/amenities/:homeId', (req, res) => {
-  db.getAmenenities(req.params.homeId, (err, amenData) => {
+  dbM.getAmenenities(req.params.homeId, (err, amenData) => {
     if(err) {
       throw err;
     } else {
