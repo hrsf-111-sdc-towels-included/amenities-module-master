@@ -37,6 +37,7 @@
     "webpack-manifest-plugin": "^2.0.4"
   },
   "dependencies": {
+    "artillery": "^1.6.0-27",
     "assert": "^1.4.1",
     "body-parser": "^1.17.2",
     "csv": "^5.1.1",
@@ -48,6 +49,7 @@
     "fs": "0.0.1-security",
     "mongoose": "^5.4.16",
     "mysql": "^2.14.1",
+    "newrelic": "^5.6.0",
     "nodemon": "^1.18.9",
     "path": "^0.12.7",
     "react": "^16.8.2",
