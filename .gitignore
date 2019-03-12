@@ -1,3 +1,5 @@
+databaseMongoDB/data/
+databasePostgreSQL/data/
 ## Mac OSX ##
 .DS_Store
 
@@ -18,3 +20,4 @@ coverage/
 
 ## images ##
 public/img
+
