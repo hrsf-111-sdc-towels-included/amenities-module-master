@@ -69,7 +69,7 @@ const getAmenenities = function (homeId, callback) {
     } else {
       let amenSet = JSON.parse(data[0].amenities[0]);
       callback(null, amenSet.map(value => {
-        console.log(value[0]);
+        // console.log(value[0]);
         return amenities[value];
       }));
     }

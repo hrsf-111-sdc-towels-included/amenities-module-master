@@ -6,6 +6,7 @@ const path = require('path');
 const dbS = require('./../databaseMySQL');
 const dbM = require('./../databaseMongoDB');
 const expressStaticGzip = require('express-static-gzip');
+const crud = require('./crud.js');
 
 const app = express();
 const port = 3003;
@@ -26,17 +27,7 @@ app.use(function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/api/amenities/:homeId', (req, res) => {
-  dbM.getAmenenities(req.params.homeId, (err, amenData) => {
-    if(err) {
-      throw err;
-    } else {
-      console.log(amenData);
-      stringedAmenData = JSON.stringify(amenData)
-      res.send(stringedAmenData).end(200);
-    }
-  })
-});
+app.get('/api/amenities/:homeId', crud.getAll);
 
 // app.post(`/api/amenities/:itemId`, (req, res) => {
 //   res.send(201)
