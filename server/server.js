@@ -3,13 +3,12 @@ require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const dbS = require('./../databaseMySQL');
 const dbM = require('./../databaseMongoDB');
 const expressStaticGzip = require('express-static-gzip');
 const crud = require('./controllers/crud.js');
 
 const app = express();
-const port = 3003;
+const port = 80;
 
 app.use('/', expressStaticGzip(path.join(__dirname, '/../public'), {
   enableBrotli: true,
