@@ -95,7 +95,7 @@ function writeAmenHomeSetStream(number, dataGenerator, writerStream, encoding, c
     seedingFunc();
 }
 
-writeAmenHomeSetStream(300, generateStringAmenities, streamAmenSets, 'utf-8', (err) => {
+writeAmenHomeSetStream(10000000, generateStringAmenities, streamAmenSets, 'utf-8', (err) => {
     if (err) {
         throw('Its an ERROR!')
     } else {
