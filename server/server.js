@@ -6,7 +6,7 @@ const path = require('path');
 const dbS = require('./../databaseMySQL');
 const dbM = require('./../databaseMongoDB');
 const expressStaticGzip = require('express-static-gzip');
-const crud = require('./crud.js');
+const crud = require('./controllers/crud.js');
 
 const app = express();
 const port = 3003;
