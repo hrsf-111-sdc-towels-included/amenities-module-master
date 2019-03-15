@@ -1,7 +1,7 @@
 const stream = require('stream');
 const fs = require('fs');
 
-const streamAmenities = fs.createWriteStream(`${__dirname}/data/amenityList.csv`);
+const streamAmenities = fs.createWriteStream(`${__dirname}/data/amenityList.json`);
 const streamAmenSets = fs.createWriteStream(`${__dirname}/data/amenitySets.json`);
 
 var randomBool = function () {
@@ -36,7 +36,16 @@ function writeAmenStream (array, writerStream, encoding, callback) {
     var able = true;
     const seed = () => {
         while (counter < array.length) {
-            var data = array[counter].toString() + "\n";
+            const tempObj = {
+                id: array[counter][0],
+                name: array[counter][1],
+                appeal: array[counter][2],
+                category: array[counter][3],
+                common: array[counter][4],
+                description: array[counter][5],
+                img_url: array[counter][6],
+            }
+            var data = JSON.stringify(tempObj) + "\n";
             able = writerStream.write(data, encoding);
             counter++;
             if (!able) break;
@@ -95,7 +104,7 @@ function writeAmenHomeSetStream(number, dataGenerator, writerStream, encoding, c
     seedingFunc();
 }
 
-writeAmenHomeSetStream(300, generateStringAmenities, streamAmenSets, 'utf-8', (err) => {
+writeAmenHomeSetStream(10000000, generateStringAmenities, streamAmenSets, 'utf-8', (err) => {
     if (err) {
         throw('Its an ERROR!')
     } else {
