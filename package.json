@@ -15,7 +15,8 @@
     "test": "jest --coverage",
     "dataGenMongo": "node databaseMongoDB/dataGen.js",
     "dataGenPost": "node databasePostgreSQL/dataGen.js",
-    "seedMongo": "mongoimport --db amenities --collection amensetlists --file amenitySets.json"
+    "seedSets": "mongoimport --db amenities --collection amensetlists --file amenitySets.json",
+    "seedAmens": "mongoimport --db amenities --collection amenitylists --file amenityList.json"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",

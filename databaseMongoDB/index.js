@@ -5,7 +5,7 @@ const AmenitiesModel = require('./../databaseMongoDB/models/amenitiesModel.js');
 const AmenSetModel = require('./../databaseMongoDB/models/amenSetModel.js');
 
 
-mongoose.connect('mongodb://localhost:27017/amenities', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/amenities', { useNewUrlParser: true });
 
 const connection = mongoose.connection;
 

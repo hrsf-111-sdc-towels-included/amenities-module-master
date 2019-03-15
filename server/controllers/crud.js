@@ -34,14 +34,12 @@ DataBase.connection.on('open', function (err, ref) {
 
 const getAll = function (req, res) {
   let homeId = req.params.homeId;
-  console.log("AmenSetModel");
   AmenSetModel.find({home_id: homeId}, (err, data, response) => {
     if(err) {
       throw ("ERROR!");
     } else {
       let amenSet = data[0].amenities;
       let willSend = amenSet.map(value => amenities[value]);
-      console.log(amenSet);
       res.send(JSON.stringify(willSend))
     }
   });
